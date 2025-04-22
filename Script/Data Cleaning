@@ -1,0 +1,27 @@
+# data_cleaning.py
+# Script to clean raw sales data and prepare for analysis
+
+import pandas as pd
+
+# Load raw data
+sales_df = pd.read_csv("../data/sample_sales_data.csv")
+
+# Basic cleanup
+sales_df.dropna(inplace=True)  # Remove missing values
+sales_df['Date'] = pd.to_datetime(sales_df['Date'])  # Ensure proper date format
+sales_df['Region'] = sales_df['Region'].str.title().str.strip()
+sales_df['Category'] = sales_df['Category'].str.title().str.strip()
+sales_df['Product'] = sales_df['Product'].str.title().str.strip()
+
+# Standardize data types
+sales_df['Quantity'] = sales_df['Quantity'].astype(int)
+sales_df['UnitPrice'] = sales_df['UnitPrice'].astype(float)
+sales_df['Revenue'] = sales_df['Revenue'].astype(float)
+sales_df['Profit'] = sales_df['Profit'].astype(float)
+
+# Remove any duplicates
+sales_df.drop_duplicates(inplace=True)
+
+# Save cleaned version
+sales_df.to_csv("../data/cleaned_sales_data.csv", index=False)
+print("Data cleaned and saved to cleaned_sales_data.csv")
