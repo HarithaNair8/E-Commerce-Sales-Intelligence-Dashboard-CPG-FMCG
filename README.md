@@ -1,0 +1,2 @@
+# E-Commerce-Sales-Intelligence-Dashboard-CPG-FMCG
+This project presents a powerful and interactive E-Commerce Sales Intelligence Dashboard built for sales performance across different regions, categories, and products. The solution integrates multiple data sources including HubSpot CRM, ERP, Google Cloud Storage and Nielsen to provide end-to-end insights for sales, marketing, and executive teams.
